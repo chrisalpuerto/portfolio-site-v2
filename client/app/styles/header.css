@@ -14,17 +14,17 @@
   border-bottom: var(--ca-hairline) solid var(--ca-border);
 }
 
+/* Full width rather than the content column: the nav aligns to the
+   viewport edge, well outside the narrower centered text column. */
 .ca-header-inner {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
   height: var(--ca-header-h);
+  padding-inline: var(--ca-gutter);
 }
 
-/* Nav sits in the middle column; the empty 1fr columns keep it
-   optically centered and reserve room for a later left mark. */
 .ca-nav {
-  grid-column: 2;
   align-self: stretch;
   display: flex;
   align-items: stretch;
@@ -65,13 +65,14 @@
 }
 
 @media (max-width: 767px) {
-  /* Single column: the 1fr side columns would squeeze the tabs. */
+  /* Too little room to hold the tabs at one edge, so they take the
+     full width and center instead. */
   .ca-header-inner {
-    grid-template-columns: 1fr;
+    padding-inline: 12px;
   }
 
   .ca-nav {
-    grid-column: 1;
+    flex: 1;
     /* `safe` falls back to flex-start when the tabs overflow, so
        the first tab stays reachable instead of being clipped. */
     justify-content: safe center;

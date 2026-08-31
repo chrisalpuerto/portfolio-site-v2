@@ -18,7 +18,7 @@ export default function Intro() {
       <div className="ca-intro-art ca-animate-mark ca-animate-delay-400">
         <Image
           className="ca-laptop-idle"
-          src="/8bit-laptop-computer.png"
+          src="/8bit-computer.gif"
           alt=""
           width={520}
           height={520}

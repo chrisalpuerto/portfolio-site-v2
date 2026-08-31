@@ -11,6 +11,8 @@
   --ca-text-muted: #696a66;
   --ca-border: #c9c7c0;
   --ca-accent: #ff6b1a;
+  /* Barely above the page — for numerals that sit behind content. */
+  --ca-ghost: #e6e4dc;
 
   /* Shape */
   --ca-radius: 6px;
@@ -19,7 +21,7 @@
 
   /* Layout */
   --ca-header-h: 72px;
-  --ca-content-max: 1120px;
+  --ca-content-max: 952px;
   --ca-gutter: 24px;
 
   /* Motion */

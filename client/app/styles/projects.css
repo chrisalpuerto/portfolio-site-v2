@@ -1,0 +1,112 @@
+/* ============================================================
+   Projects — two per row, split by a hairline
+   Card anatomy follows ui-ref/the-brief-project-idea.png: a
+   ghosted numeral sitting behind the content at the top right,
+   a title carrying a period, copy, then the image.
+   ============================================================ */
+.ca-projects {
+  padding-block: clamp(48px, 9vh, 96px);
+}
+
+.ca-projects-heading {
+  margin: 0 0 48px;
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* No column-gap: the facing padding on each cell is what puts the
+   divider exactly midway between the two cards' content. */
+.ca-projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 64px;
+}
+
+.ca-project:nth-child(odd) {
+  padding-right: 40px;
+}
+
+.ca-project:nth-child(even) {
+  padding-left: 40px;
+  border-left: var(--ca-hairline) solid var(--ca-border);
+}
+
+.ca-project {
+  position: relative;
+}
+
+/* Bleeds slightly off the top edge, behind the content. */
+.ca-project-number {
+  position: absolute;
+  top: -0.25em;
+  right: 0;
+  z-index: 0;
+  color: var(--ca-ghost);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.ca-project-content {
+  position: relative;
+  z-index: 1;
+}
+
+.ca-project-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.ca-project-desc {
+  margin: 12px 0 0;
+  color: var(--ca-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+.ca-project-media {
+  position: relative;
+  margin-top: 24px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--ca-surface);
+  border: var(--ca-hairline) solid var(--ca-border);
+  border-radius: var(--ca-radius);
+}
+
+/* Centered in the panel until a real image replaces it. */
+.ca-project-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ca-text-muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ca-project-image {
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .ca-projects-grid {
+    grid-template-columns: 1fr;
+    row-gap: 48px;
+  }
+
+  /* The divider only makes sense between side-by-side cards. */
+  .ca-project:nth-child(odd),
+  .ca-project:nth-child(even) {
+    padding-inline: 0;
+    border-left: none;
+  }
+}
