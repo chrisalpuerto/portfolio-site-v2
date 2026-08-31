@@ -1,0 +1,91 @@
+/* ============================================================
+   Header — centered tabs
+   Placement and rhythm from ui-ref/header.png: off-white bar,
+   hairline rule, tabs near the horizontal center, active tab in
+   near-black over a flat black underline at the bar's bottom
+   edge. The far-left logo in that reference is intentionally
+   not reproduced.
+   ============================================================ */
+.ca-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--ca-surface);
+  border-bottom: var(--ca-hairline) solid var(--ca-border);
+}
+
+.ca-header-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: var(--ca-header-h);
+}
+
+/* Nav sits in the middle column; the empty 1fr columns keep it
+   optically centered and reserve room for a later left mark. */
+.ca-nav {
+  grid-column: 2;
+  align-self: stretch;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.ca-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  color: var(--ca-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s var(--ca-ease);
+}
+
+.ca-nav-link:hover {
+  color: var(--ca-text);
+}
+
+.ca-nav-link.is-active {
+  color: var(--ca-text);
+}
+
+/* Underline sits below the label, on the bar's bottom edge, and
+   runs slightly wider than the text. */
+.ca-nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--ca-text);
+}
+
+@media (max-width: 767px) {
+  /* Single column: the 1fr side columns would squeeze the tabs. */
+  .ca-header-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .ca-nav {
+    grid-column: 1;
+    /* `safe` falls back to flex-start when the tabs overflow, so
+       the first tab stays reachable instead of being clipped. */
+    justify-content: safe center;
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .ca-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ca-nav-link {
+    padding: 0 8px;
+    font-size: 0.8125rem;
+  }
+}

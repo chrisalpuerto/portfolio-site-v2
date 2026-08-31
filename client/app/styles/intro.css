@@ -1,0 +1,63 @@
+/* ============================================================
+   Intro — name, role, pixel-art signature
+   Left-aligned type with the laptop held to the right so the
+   copy leads. The laptop is an accent, not the composition.
+   ============================================================ */
+.ca-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 64px;
+  padding-block: clamp(64px, 12vh, 140px);
+}
+
+.ca-intro-name {
+  margin: 0;
+  font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* The single visible accent moment on the page. */
+.ca-intro-name-dot {
+  color: var(--ca-accent);
+}
+
+.ca-intro-desc {
+  max-width: 46ch;
+  margin: 24px 0 0;
+  color: var(--ca-text-muted);
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+
+.ca-intro-art {
+  justify-self: end;
+}
+
+.ca-intro-art img {
+  display: block;
+  width: clamp(180px, 22vw, 300px);
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .ca-intro {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .ca-intro-art {
+    justify-self: start;
+    margin-top: 48px;
+  }
+
+  .ca-intro-art img {
+    width: 150px;
+  }
+
+  .ca-intro-desc {
+    font-size: 1.0625rem;
+  }
+}
