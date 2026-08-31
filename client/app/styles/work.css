@@ -1,0 +1,93 @@
+/* ============================================================
+   Work experience — timeline rows
+   The hairline "lines" treatment from text-color-scheme-ref.png
+   with the archive rhythm of projects-ref.png. The leading date
+   column keeps it distinct from the projects archive.
+   ============================================================ */
+.ca-work {
+  padding-block: clamp(48px, 9vh, 96px);
+}
+
+.ca-work-heading {
+  margin: 0 0 40px;
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.ca-work-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: var(--ca-hairline) solid var(--ca-border);
+}
+
+.ca-work-item {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 24px;
+  padding-block: 32px;
+  border-top: var(--ca-hairline) solid var(--ca-border);
+}
+
+/* Mono earns its keep on the small meta labels. */
+.ca-work-period,
+.ca-work-location {
+  color: var(--ca-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ca-work-location {
+  text-align: right;
+}
+
+.ca-work-company {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.ca-work-desc {
+  max-width: 54ch;
+  margin: 10px 0 0;
+  color: var(--ca-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 767px) {
+  .ca-work-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* Flattens the body wrapper so all four fields are grid items
+     and can be reordered: date, company, location, description. */
+  .ca-work-body {
+    display: contents;
+  }
+
+  .ca-work-period {
+    order: 1;
+  }
+
+  .ca-work-company {
+    order: 2;
+  }
+
+  .ca-work-location {
+    order: 3;
+    text-align: left;
+  }
+
+  .ca-work-desc {
+    order: 4;
+    margin-top: 4px;
+  }
+}

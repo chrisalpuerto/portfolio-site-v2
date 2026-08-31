@@ -4,5 +4,7 @@
 
 @import "./styles/tokens.css";
 @import "./styles/animate.css";
+@import "./styles/stars.css";
 @import "./styles/header.css";
 @import "./styles/intro.css";
+@import "./styles/work.css";

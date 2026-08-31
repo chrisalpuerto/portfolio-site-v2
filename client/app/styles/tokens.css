@@ -48,7 +48,8 @@ body {
   margin: 0;
   background: var(--ca-bg);
   color: var(--ca-text);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular,
+    Menlo, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -56,6 +57,12 @@ body {
 /* Anchor targets clear the sticky header. */
 section[id] {
   scroll-margin-top: var(--ca-header-h);
+}
+
+/* Lifts page content above the fixed star canvas at z-index 0. */
+main {
+  position: relative;
+  z-index: 1;
 }
 
 /* Shared content column. */
